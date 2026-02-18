@@ -1,7 +1,7 @@
-📌 Documento de Especificação
+### 📌 Documento de Especificação
 Sistema de Favoritos e Coleções de Ofertas
 
-1️⃣ Visão Geral
+### 1️⃣ Visão Geral
 📖 Descrição
 Sistema backend desenvolvido em Python + Django + Django Rest Framework que permite aos usuários:
 Salvar ofertas/produtos como favoritos
@@ -11,7 +11,7 @@ Visualizar feed personalizado
 Receber notificações de interações
 O sistema é inspirado no modelo social de curadoria de conteúdo como Pinterest.
 
-2️⃣ Objetivos do Projeto
+### 2️⃣ Objetivos do Projeto
 🎯 Objetivo Principal
 Criar uma API escalável que permite gerenciamento de favoritos com comportamento social.
 🎯 Objetivos Técnicos
@@ -22,7 +22,7 @@ Aplicar cache com Redis
 Garantir performance com alto volume de usuários
 Trabalhar com concorrência e integridade de dados
 
-3️⃣ Escopo Funcional
+### 3️⃣ Escopo Funcional
 👤 Usuários
 Cadastro
 Login
@@ -71,7 +71,7 @@ Funcionalidades:
 Listar notificações
 Marcar como lida
 
-4️⃣ Requisitos Não Funcionais
+### 4️⃣ Requisitos Não Funcionais
 ⚡ Performance
 Responder requisições de feed em < 300ms
 Suportar 1.000 usuários ativos simultâneos
@@ -84,7 +84,7 @@ Cache de feed no Redis
 Paginação (se possível utilizar cursor-based)
 Índices em campos estratégicos
 
-5️⃣ Arquitetura Técnica
+### 5️⃣ Arquitetura Técnica
 Stack
 Python
 Django
@@ -104,7 +104,7 @@ apps/
   feed/
   notifications/
 
-6️⃣ Modelagem de Dados
+### 6️⃣ Modelagem de Dados
 User
 Modelo padrão do Django (ou customizado)
 
@@ -164,7 +164,7 @@ type
 is_read
 created_at
 
-7️⃣ Regras de Negócio
+### 7️⃣ Regras de Negócio
 Usuário não pode favoritar a mesma oferta duas vezes
 Usuário não pode seguir a si mesmo
 Usuário não pode ver coleções privadas de outros
@@ -173,7 +173,7 @@ Remover favoritos associados
 Atualizar feed
 favorites_count deve sempre refletir valor real
 
-8️⃣ Fluxos Importantes
+### 8️⃣ Fluxos Importantes
 🔁 Fluxo: Favoritar Oferta
 Validar autenticação
 Verificar se já existe favorito
@@ -188,7 +188,7 @@ Verificar se já segue
 Criar Follow
 Criar notificação
 
-9️⃣ Estratégia de Feed
+### 9️⃣ Estratégia de Feed
 Estratégia Recomendada: Feed Pré-calculado
 Quando ação acontece:
 Buscar seguidores do ator
@@ -197,7 +197,7 @@ Cachear lista no Redis
 Benefício:
 Feed extremamente rápido
 
-🔟 Estratégia de Performance
+### 🔟 Estratégia de Performance
 select_related em Offer → created_by
 prefetch_related em followers
 Índices:
@@ -209,7 +209,7 @@ Feed por usuário
 Ofertas populares
 Perfil público
 
-1️⃣1️⃣ Endpoints da API
+### 1️⃣1️⃣ Endpoints da API
 Autenticação
 POST /auth/login
 POST /auth/register
@@ -241,7 +241,7 @@ Notificações
 GET /notifications/
 PATCH /notifications/{id}/read/
 
-1️⃣2️⃣ Possíveis Evoluções Futuras
+### 1️⃣2️⃣ Possíveis Evoluções Futuras
 Sistema de ranking (trending)
 Algoritmo de recomendação
 Sistema de comentários
@@ -249,7 +249,7 @@ Sistema de badges
 Sistema premium
 Analytics por usuário
 
-1️⃣3️⃣ Critérios de Aceitação
+### 1️⃣3️⃣ Critérios de Aceitação
 ✔ Todas as operações devem respeitar autenticação
 ✔ Não deve haver inconsistência no contador de favoritos
 ✔ Feed deve ser paginado
